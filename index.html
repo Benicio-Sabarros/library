@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Library</title>
+    <script href="./script.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h1>My Library</h1>
+    </div>
+        
+        <div class="books">
+            <button class="add-book">+ Add Book</button>
+            <div class="form-container">
+                 <form action="" method="post" class="form">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" maxlength="40">
+
+                    <label for="author">Author</label>
+                    <input type="text" name="author" id="author" maxlength="40">
+
+                    <label for="pages">Number of pages</label>
+                 <input type="number" name="pages" id="pages">
+
+                    <div class="checkbox">
+                        <label for="read">Read?</label>
+                        <input type="checkbox" name="read" id="read">
+                    </div>
+                </form>
+            </div>
+            <div class="book">
+                <diV class="title-container">
+                    <p>Title:</p>
+                    <p class="title">1984</p>
+                </diV>
+
+                <div class="author-container">
+                    <p>Author:</p>
+                    <p class="author">George Orwell</p>
+                </div>
+
+                <div class="pages-container">
+                    <p>Number of pages:</p>
+                    <p class="pages">235</p>
+                </div>
+
+                <div class="read-container">
+                    <p>Read?</p>
+                    <p class="read">Yes</p>
+                </div>
+            </div>
+        </div>
+
+</body>
+</html>
