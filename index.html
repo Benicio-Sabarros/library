@@ -12,7 +12,7 @@
         <h1>My Library</h1>
     </div>
         
-        <div class="books">
+        <div class="books-container">
             <button class="add-book">+ Add Book</button>
             <div class="form-container">
                  <form action="" method="post" class="form">
@@ -31,26 +31,34 @@
                     </div>
                 </form>
             </div>
-            <div class="book">
+            <div class="book-container" data-index-number="">
                 <diV class="title-container">
                     <p>Title:</p>
-                    <p class="title">1984</p>
+                    <p class="title"></p>
                 </diV>
 
                 <div class="author-container">
                     <p>Author:</p>
-                    <p class="author">George Orwell</p>
+                    <p class="author"></p>
                 </div>
 
                 <div class="pages-container">
                     <p>Number of pages:</p>
-                    <p class="pages">235</p>
+                    <p class="pages"></p>
                 </div>
 
                 <div class="read-container">
                     <p>Read?</p>
-                    <p class="read">Yes</p>
+                    <p class="read"></p>
+                    <button class="read-button">Change read status</button>
                 </div>
+
+                <div class="id-container">
+                    <p>ID:</p>
+                    <p class="id"></p>
+                </div>
+
+                <button class="remove-button">Remove Book</button>
             </div>
         </div>
 
