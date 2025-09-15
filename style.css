@@ -16,19 +16,34 @@
     width: 500px;
     height: 100%;
     margin: auto;
-    border: black 1px solid;
 }
 
 .book-container{
     border-radius: 40px;
-    border: black 1px solid;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
     width: 160px;
     margin-top: 20px;
     display: none;
+    border: black 1px solid;
+}
+
+.book-container > div{
+    margin-bottom: 10px;
+}
+
+.read-text-container{
+    display: flex;
+    gap: 20px;
+}
+
+.add-book-container{
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    height: 100%;
+    margin: auto;
 }
 
 .add-book{

@@ -1,17 +1,10 @@
 window.onload = function() {
     const myLibrary = [
-        {title: "1984",
-        author: "George Orwell",
-        pages: 254,
-        read: true,
-        id: crypto.randomUUID()}
     ];
     const books = document.querySelector(".books-container");
     const addBook = document.querySelector(".add-book");
     const originalForm = document.querySelector(".form-container");
     const originalBook = document.querySelector(".book-container");
-    const readButton = document.querySelector(".read-button");
-    const removeButton = documnet.querySelector(".remove-button");
 
     function Book(title, author, pages, read) {
         this.title = title;
@@ -21,47 +14,68 @@ window.onload = function() {
         this.id = crypto.randomUUID();
     };
 
-    function createBook(event){
-        event.preventDefault();
-        const formData = new FormData(this);
-        const book = new Book(
-            formData.get("title"),
-            formData.get("author"),
-            formData.get("pages"),
-            formData.get("read")
-        );
-        myLibrary.push(book);
-        this.remove();
-    }
-
-    function displayBook() {
+    function displayBook(book) {
         const newBook = originalBook.cloneNode(true);
         const title = newBook.querySelector(".title");
         const author = newBook.querySelector(".author");
         const pages = newBook.querySelector(".pages");
         const read = newBook.querySelector(".read");
         const id = newBook.querySelector(".id");
-        title.textContent = this.title;
-        author.textContent = this.author;
-        pages.textContent = this.pages;
-        read.textContent = this.read ? "Yes" : "No";
-        id.textContent = this.id;
-        newBook.dataset.indexNumber = this.id;
+        const readButton = newBook.querySelector(".read-button");
+        const removeButton = newBook.querySelector(".remove-button");
+        title.textContent = book.title;
+        author.textContent = book.author;
+        pages.textContent = book.pages;
+        read.textContent = book.read ? "Yes" : "No";
+        id.textContent = book.id;
+        newBook.dataset.indexNumber = book.id;
         newBook.style.display = "block";
+
+        readButton.addEventListener("click", () => {
+            book.read = !book.read;
+            read.textContent = book.read ? "Yes" : "No";
+        });
+
+        removeButton.addEventListener("click", () => {
+            newBook.remove();
+            const index = myLibrary.indexOf(book);
+            if(index > -1) myLibrary.splice(index, 1);
+            displayBooks();
+        });
 
         books.appendChild(newBook);
     };
 
     function displayBooks() {
+        books.innerHTML = "";
         myLibrary.forEach(displayBook);
     };
+
+
    
 
     addBook.addEventListener("click", () => {
-        const newForm = originalForm.cloneNode(true);
-        newForm.addEventListener("submit", createBook);
-        newForm.style.display = "block";
-        books.appendChild(newForm);
+        if(!document.querySelector(".new-form")){
+            const newFormContainer = originalForm.cloneNode(true);
+            const newForm = newFormContainer.querySelector("form");
+            newForm.classList.add("new-form")
+            newForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+                const formData = new FormData(this);
+                const book = new Book(
+                formData.get("title"),
+                formData.get("author"),
+                formData.get("pages"),
+                formData.get("read")
+                );
+                myLibrary.push(book);
+                newFormContainer.remove();
+                displayBooks();
+            });
+            newFormContainer.style.display = "block";
+            books.appendChild(newForm);
+        }
+        console.log("the button")
     });
 
     displayBooks();

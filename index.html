@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <title>Library</title>
-    <script href="./script.js"></script>
+    <script src="./script.js"></script>
 </head>
 <body>
     <div class="header">
         <h1>My Library</h1>
     </div>
-        
-        <div class="books-container">
+        <div class="add-book-container">
             <button class="add-book">+ Add Book</button>
+        </div>
+        <div class="books-container">
             <div class="form-container">
                  <form action="" method="post" class="form">
                     <label for="title">Title</label>
@@ -29,6 +30,8 @@
                         <label for="read">Read?</label>
                         <input type="checkbox" name="read" id="read">
                     </div>
+
+                    <button type="submit">Submit</button>
                 </form>
             </div>
             <div class="book-container" data-index-number="">
@@ -48,8 +51,11 @@
                 </div>
 
                 <div class="read-container">
-                    <p>Read?</p>
-                    <p class="read"></p>
+                    <div class="read-text-container">
+                        <p>Read?</p>
+                        <p class="read"></p>
+                    </div>
+                    
                     <button class="read-button">Change read status</button>
                 </div>
 
